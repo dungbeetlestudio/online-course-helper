@@ -1,0 +1,20 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>
+      课程列表
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only color="royal">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ item }}
+    </button>  
+  </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      学生控制
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="display: flex">
+    <ion-label>当前可报名学生：0/0</ion-label>
+    <button ion-button (click)="studentsSign()">学生报名</button>
+  </div>
+  <div style="display: flex;">
+    <ion-label>当前可听课学生：0/0</ion-label>
+    <button ion-button (click)="studentsEnter()">进入教室</button>
+  </div>
+  <div style="display: flex;">
+    <button ion-button (click)="interactionClick()">学生互动</button>
+    <button ion-button (click)="questionsClick()">学生提问</button>
+  </div>
+</ion-content>
