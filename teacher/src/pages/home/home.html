@@ -4,10 +4,10 @@
       课程列表
     </ion-title>
     <ion-buttons end>
-        <button ion-button icon-only color="royal">
-          <ion-icon name="add"></ion-icon>
-        </button>
-      </ion-buttons>
+      <button ion-button icon-only color="royal" (click)="addClick()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,6 +15,6 @@
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
       {{ item }}
-    </button>  
+    </button>
   </ion-list>
 </ion-content>
