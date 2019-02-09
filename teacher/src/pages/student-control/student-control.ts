@@ -10,7 +10,7 @@ import { QuestionsPage } from '../questions/questions'
 export class StudentControlPage {
     course: string
     studentsHasSigned: Array<any>
-    studentsHasEnted: Array<any>
+    studentsHasEnter: Array<any>
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.course = navParams.get('course')
@@ -21,14 +21,14 @@ export class StudentControlPage {
     }
 
     studentsEnter() {
-        this.studentsHasEnted = ['517013400', '614332022']
+        this.studentsHasEnter = ['517013400', '614332022']
     }
 
     interactionClick() {
-        this.navCtrl.push(InteractionPage, { students: this.studentsHasEnted })
+        this.navCtrl.push(InteractionPage, { students: this.studentsHasEnter })
     }
 
     questionsClick() {
-        this.navCtrl.push(QuestionsPage, { students: this.studentsHasEnted })
+        this.navCtrl.push(QuestionsPage, { students: this.studentsHasEnter })
     }
 }

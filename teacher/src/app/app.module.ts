@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { StudentControlPage } from '../pages/student-control/student-control'
 import { InteractionPage } from '../pages/interaction/interaction'
 import { QuestionsPage } from '../pages/questions/questions'
-
+import { AddPage } from '../pages/title/add'
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { QuestionsPage } from '../pages/questions/questions'
     HomePage,
     StudentControlPage,
     QuestionsPage,
-    InteractionPage
+    InteractionPage,
+    AddPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { QuestionsPage } from '../pages/questions/questions'
     HomePage,
     StudentControlPage,
     QuestionsPage,
-    InteractionPage
+    InteractionPage,
+    AddPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
+import { AddPage } from '../title/add'
 
 @Component({
   selector: 'page-home',
@@ -10,11 +11,19 @@ export class InteractionPage {
 
   ]
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modal: ModalController) {
 
   }
 
   itemSelected(item: string) {
     console.log("Selected Item", item)
+  }
+
+  addClick() {
+    let m = this.modal.create(AddPage)
+    m.present()
+    m.onDidDismiss(name => {
+      this.items.push(name)
+    })
   }
 }
