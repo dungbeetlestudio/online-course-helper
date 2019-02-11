@@ -3,19 +3,24 @@
     <ion-title>
       互动列表
     </ion-title>
-    
+
     <ion-buttons end>
-        <button ion-button icon-only color="royal" (click)="addClick()">
-            <ion-icon name="add"></ion-icon>
-          </button>
-      </ion-buttons>
+      <button ion-button icon-only color="royal" (click)="addClick()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-          {{ item }}
-        </button>
-      </ion-list>
+  <ion-list>
+      <ion-item-sliding *ngFor="let item of items">
+          <button ion-item (click)="itemSelected(item)">
+            {{ item }}
+          </button>
+          <ion-item-options side="right">
+            <button ion-button (click)="remove(item)" color="danger">移除</button>
+          </ion-item-options>
+        </ion-item-sliding>
+  </ion-list>
 </ion-content>

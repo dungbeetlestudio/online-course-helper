@@ -14,7 +14,7 @@ export class AddPage {
     }
 
     ionViewDidLoad() {
-
+    
     }
 
     inputNameOnChange() {
