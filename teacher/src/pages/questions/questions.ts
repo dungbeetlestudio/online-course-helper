@@ -1,6 +1,7 @@
 ﻿import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, ItemSliding } from 'ionic-angular';
 import { AddPage } from '../title/add'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -11,8 +12,8 @@ export class QuestionsPage {
 
   ]
 
-  constructor(public navCtrl: NavController, public modal: ModalController) {
-
+  constructor(public navCtrl: NavController, public modal: ModalController, public storage: Storage) {
+    storage.get('questions').then(items => this.items = items == null ? [] : items)
   }
 
   itemSelected(item: string) {
@@ -23,7 +24,15 @@ export class QuestionsPage {
     let m = this.modal.create(AddPage)
     m.present()
     m.onDidDismiss(name => {
-      this.items.push(name)
+      if (name != null) {
+        this.items.push(name)
+        this.storage.set('questions', this.items)
+      }
     })
+  }
+
+  remove(item) {
+    this.items.splice(this.items.indexOf(item),1)
+    this.storage.set('questions', this.items)
   }
 }

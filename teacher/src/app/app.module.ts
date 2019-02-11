@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { IonicStorageModule } from '@ionic/storage';
+
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +24,8 @@ import { AddPage } from '../pages/title/add'
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
