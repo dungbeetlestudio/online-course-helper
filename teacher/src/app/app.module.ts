@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicStorageModule } from '@ionic/storage';
+import {HttpClientModule} from '@angular/common/http';
 
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -9,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { StudentControlPage } from '../pages/student-control/student-control'
-import { InteractionPage } from '../pages/interaction/interaction'
+import { InteractionsPage } from '../pages/interactions/interactions'
 import { QuestionsPage } from '../pages/questions/questions'
 import { AddPage } from '../pages/title/add'
 
@@ -19,13 +20,14 @@ import { AddPage } from '../pages/title/add'
     HomePage,
     StudentControlPage,
     QuestionsPage,
-    InteractionPage,
+    InteractionsPage,
     AddPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +35,7 @@ import { AddPage } from '../pages/title/add'
     HomePage,
     StudentControlPage,
     QuestionsPage,
-    InteractionPage,
+    InteractionsPage,
     AddPage
   ],
   providers: [
