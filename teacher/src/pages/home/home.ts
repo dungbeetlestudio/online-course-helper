@@ -4,6 +4,7 @@ import { StudentControlPage } from '../student-control/student-control'
 import { AddPage } from '../title/add'
 import { Storage } from '@ionic/storage';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

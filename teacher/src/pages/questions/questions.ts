@@ -1,7 +1,9 @@
 ﻿import { Component } from '@angular/core';
-import { ModalController, NavController, ItemSliding } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { AddPage } from '../title/add'
 import { Storage } from '@ionic/storage';
+import { HttpClient } from "@angular/common/http"
+import { API } from "../../api-def"
 
 @Component({
   selector: 'page-home',
@@ -12,12 +14,18 @@ export class QuestionsPage {
 
   ]
 
-  constructor(public navCtrl: NavController, public modal: ModalController, public storage: Storage) {
+  constructor(public http: HttpClient, public navCtrl: NavController, public modal: ModalController, public storage: Storage) {
     storage.get('questions').then(items => this.items = items == null ? [] : items)
   }
 
   itemSelected(item: string) {
     console.log("Selected Item", item)
+    this.http.get(API.Say, { params: { msg: item } })
+      .subscribe(res => {
+        console.log(res)
+      }, err => {
+        console.error(err)
+      })
   }
 
   addClick() {
@@ -32,7 +40,7 @@ export class QuestionsPage {
   }
 
   remove(item) {
-    this.items.splice(this.items.indexOf(item),1)
+    this.items.splice(this.items.indexOf(item), 1)
     this.storage.set('questions', this.items)
   }
 }
