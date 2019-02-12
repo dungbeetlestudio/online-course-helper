@@ -16,7 +16,7 @@ export class StudentControlPage {
     numberOfEnteredRobots: number = 0
     timer = true
     buttonSignDisabled: boolean = false
-    buttonEnteredDisabled: boolean = true
+    buttonEnteredDisabled: boolean = false
     buttonLeaveDisabled: boolean = true
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
@@ -59,7 +59,6 @@ export class StudentControlPage {
         })
 
         this.buttonSignDisabled = true
-        this.buttonEnteredDisabled = false
     }
 
     studentsEnter() {
