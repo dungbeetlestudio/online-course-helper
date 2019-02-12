@@ -11,11 +11,11 @@
     <ion-label>课程：{{course}}</ion-label>
   </div>
   <hr>
-  <div style="display: flex">
+  <!-- <div style="display: flex">
     <ion-label>当前可报名学生：{{numberOfUnsignedRobots}}/{{numberOfSignedRobots}}</ion-label>
     <button ion-button (click)="studentsSign()" [disabled]='buttonSignDisabled'>学生报名</button>
   </div>
-  <hr>
+  <hr> -->
   <div style="display: flex;">
     <ion-label>当前可听课学生：{{numberOfSignedRobots}}/{{numberOfEnteredRobots}}</ion-label>
     <button ion-button (click)="studentsEnter()" [disabled]='buttonEnteredDisabled'>进入教室</button>

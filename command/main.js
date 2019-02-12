@@ -7,11 +7,11 @@ var main = async () => {
         res.setHeader('Access-Control-Allow-Origin', '*')
         console.log(req.query)
         console.log(req.body)
-        res.send([])
+        res.send('hello world')
     })
 
     app.listen(80, function () {
-        console.log('HTTP Server is running on: http://localhost:%s', 80)
+        console.log('HTTP Server is running on: http://www.dungbeetles.xyz')
     })
 }
 

@@ -9,8 +9,8 @@ app.use(express.static('www'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(session({
-    secret: 'quanquan',
-    key: 'quanquan',
+    secret: 'online-course-helper',
+    key: 'online-course-helper',
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 },
     resave: false,
     saveUninitialized: true,
