@@ -18,6 +18,13 @@ export class QuestionsPage {
     storage.get('questions').then(items => this.items = items == null ? [] : items)
   }
 
+  ionViewDidLeave() {
+    this.storage.get('questions').then(items => {
+      if (this.items.toString() == items.toString()) return
+      this.storage.set('questions', this.items)
+    })
+  }
+
   itemSelected(item: string) {
     console.log("Selected Item", item)
     this.http.get(API.Say, { params: { msg: item } })
@@ -31,16 +38,10 @@ export class QuestionsPage {
   addClick() {
     let m = this.modal.create(AddPage)
     m.present()
-    m.onDidDismiss(name => {
-      if (name != null) {
-        this.items.push(name)
-        this.storage.set('questions', this.items)
-      }
-    })
+    m.onDidDismiss(name => { if (name != null) this.items.push(name) })
   }
 
   remove(item) {
     this.items.splice(this.items.indexOf(item), 1)
-    this.storage.set('questions', this.items)
   }
 }

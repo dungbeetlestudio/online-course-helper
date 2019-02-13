@@ -10,7 +10,7 @@ var main = async () => {
         res.send('hello world')
     })
 
-    app.listen(80, function () {
+    app.listen(10000, function () {
         console.log('HTTP Server is running on: http://www.dungbeetles.xyz')
     })
 }
