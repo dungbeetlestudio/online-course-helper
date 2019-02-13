@@ -3,5 +3,8 @@ export const API = {
     Sign:'http://www.dungbeetles.xyz/online-course-helper/sign',
     Enter:'http://www.dungbeetles.xyz/online-course-helper/enter',
     Leave:'http://www.dungbeetles.xyz/online-course-helper/leave',
-    Say:'http://www.dungbeetles.xyz/online-course-helper/say'
+    Question:'http://www.dungbeetles.xyz/online-course-helper/question',
+    Say:'http://www.dungbeetles.xyz/online-course-helper/say',
+    SaySomething:'http://www.dungbeetles.xyz/online-course-helper/saySomething',
+    DoWhat:'http://www.dungbeetles.xyz/online-course-helper/doWhat'
 }
