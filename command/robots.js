@@ -1,12 +1,13 @@
 var peoples = {
     truman: {
         saySomething: [''],
+        questions:[''],
         robots: {
             online: {
-                "517013400": { pwd: "xfskyl6422", status: { hasSigns: {}, hasEntered: false}, order: [{ i: 0, f: 'enter', v: '直播测试课' }] }
+                "517013400": { pwd: "xfskyl6422", status: { hasSigns: {}, hasEntered: false }, order: { i: 0, f: 'enter', v: '直播测试课' } }
             },
             offline: {
-                "614332022": { pwd: "xfskyl6422", status: { hasSigns: {}, hasEntered: false}, order: [{ i: 0, f: '', v: '' }] }
+                "614332022": { pwd: "xfskyl6422", status: { hasSigns: {}, hasEntered: false }, order: { i: 0, f: '', v: '' } }
             }
         }
     }
@@ -99,22 +100,29 @@ var init = function (app) {
     })
 
     app.get('/online-course-helper/say', function (req, res) {
+        res.setHeader('Access-Control-Allow-Credentials', true)
+        res.setHeader('Access-Control-Allow-Origin', req.headers.origin ? req.headers.origin : '*')
+
         console.log('/say:')
         console.log(req.query)
         for (robot of peoples.truman.robots.online) {
-            robot.order.i++
-            robot.order.f = 'enter'
-            robot.order.v = req.query.v
-            break
+            if (robot.status.ready) {
+                robot.order.i++
+                robot.order.f = 'enter'
+                robot.order.v = req.query.value
+                res.send({ ret: true, err: null })
+                return
+            }
         }
-        res.setHeader('Access-Control-Allow-Credentials', true)
-        res.setHeader('Access-Control-Allow-Origin', req.headers.origin ? req.headers.origin : '*')
-        res.send({ ret: 0, err: null })
+
+        res.send({ ret: false, err: null })
     })
 
     app.get('/online-course-helper/saySomething', function (req, res) {
         console.log('/saySomething:')
         console.log(req.query)
+
+        peoples.truman.saySomething = req.query.items
         res.setHeader('Access-Control-Allow-Credentials', true)
         res.setHeader('Access-Control-Allow-Origin', req.headers.origin ? req.headers.origin : '*')
         res.send({ ret: 0, err: null })
@@ -123,6 +131,8 @@ var init = function (app) {
     app.get('/online-course-helper/question', function (req, res) {
         console.log('/question:')
         console.log(req.query)
+        peoples.truman.questions. 
+
         res.setHeader('Access-Control-Allow-Credentials', true)
         res.setHeader('Access-Control-Allow-Origin', req.headers.origin ? req.headers.origin : '*')
         res.send({ ret: 0, err: null })
@@ -131,6 +141,11 @@ var init = function (app) {
     app.get('/online-course-helper/leave', function (req, res) {
         console.log('/leave:')
         console.log(req.query)
+        for (robot of peoples.truman.robots.online) {
+            robot.order.i++
+            robot.order.f = 'leave'
+            robot.order.v = null
+        }
         res.setHeader('Access-Control-Allow-Credentials', true)
         res.setHeader('Access-Control-Allow-Origin', req.headers.origin ? req.headers.origin : '*')
         res.send({ ret: 0, err: null })
