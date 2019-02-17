@@ -1,6 +1,7 @@
 var main = async () => {
     var app = require('./express')
-    require('./robots').init(app)
+    var peoples = await require('./mongo').init()
+    require('./robots').init(app,peoples)
 
     app.all(/test/, function (req, res) {
         res.setHeader('Access-Control-Allow-Credentials', true)

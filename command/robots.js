@@ -1,15 +1,11 @@
 var peoples = {
-    truman: {
-        saySomething: [''],
-        robots: {
-            online: {
-                "517013400": { pwd: "xfskyl6422", status: { hasSigns: {}, hasEntered: false}, order: [{ i: 0, f: 'enter', v: '直播测试课' }] }
-            },
-            offline: {
-                "614332022": { pwd: "xfskyl6422", status: { hasSigns: {}, hasEntered: false}, order: [{ i: 0, f: '', v: '' }] }
-            }
-        }
-    }
+    name: 'truman',
+    saySomething: ['hahahah'],
+    qusations: ['+1'],
+    robots: [
+        { account: "517013400", pwd: "xfskyl6422", order: [{ f: '', v: '' }], ready: true, hasSigns: {} },
+        { account: "614332022", pwd: "xfskyl6422", order: [{ f: '', v: '' }], ready: true, hasSigns: {} }
+    ]
 }
 
 var init = function (app) {
