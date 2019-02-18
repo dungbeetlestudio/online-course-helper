@@ -12,7 +12,7 @@ var main = async () => {
     })
 
     app.listen(10000, function () {
-        console.log('HTTP Server is running on: http://www.dungbeetles.xyz')
+        console.log('HTTP Server is running on: http://www.dungbeetles.xyz/online-course-helper')
     })
 }
 
